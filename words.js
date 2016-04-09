@@ -13,3 +13,18 @@ var commonWords = [
   "who","oil","its","now","find","long","down","day","did","get",
   "come","made","may","part"
 ];
+
+var wordContainer = document.querySelector('.hiddenWord');
+
+  function wordSelector() {
+    var selectedWord = document.createElement('p');
+
+    return selectedWord.textContent = commonWords[Math.floor(Math.random() * commonWords.length)]
+
+  }
+
+  console.log(commonWords[Math.floor(Math.random() * commonWords.length)]);
+
+  console.log(typeof wordContainer);
+  console.log(typeof wordSelector());
+wordContainer.appendChild(wordSelector(wordContainer));

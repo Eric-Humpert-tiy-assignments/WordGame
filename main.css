@@ -46,3 +46,36 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+.body {
+	margin: 2%;
+	font-family: sans-serif;
+}
+
+.wordBox {
+  border: solid 2px #000;
+	border-radius: 5px;
+  margin: 2%;
+}
+
+.wordBox .hiddenWord {
+	font-size: 4em;
+	margin: 1% 40%;
+	padding: 2% 5%;
+}
+
+.inputBox {
+	border-radius: 5px;
+	margin: auto;
+	width: 25%;
+	padding: 1%;
+}
+
+.inputBox .guessEntry {
+	width: 60%;
+}
+
+.inputBox .submitButton {
+	width: 28%;
+	
+}

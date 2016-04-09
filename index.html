@@ -2,21 +2,19 @@
 <html>
   <head>
     <title>Guess the word!</title>
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <div class="wordBox">
-      <ul class="wordField">
-        <li>W</li>
-        <li>O</li>
-        <li>R</li>
-        <li>D</li>
-      </ul>
+      <p class="hiddenWord">test</p>
     </div>
-
-    <input type="text" class="guessEntry">
-    <button class="submitButton">Guess a letter</button>
+    <div class="inputBox">
+      <input type="text" class="guessEntry">
+      <button class="submitButton">Guess</button>
+    </div>
   </body>
 
   <script src="wordGame.js" type="text/javascript">
   </script>
+  <script src="words.js" type="text/javascript"></script>
 </html>
