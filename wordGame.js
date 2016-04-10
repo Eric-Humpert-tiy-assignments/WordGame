@@ -1,25 +1,23 @@
-//global scope variables
+//global variables
 var wordContainer = document.querySelector('.hiddenWord');
-var selectedWord = '';
+var userGuess = document.querySelector('.guessEntry').value;
 var chosenWord = wordSelector();
-var display = [];
+
+
   //word selection function
   function wordSelector() {
-
-    return selectedWord += commonWords[Math.floor(Math.random() * commonWords.length)];
-
-  }
-  //word hiding function
-
-
-  //Word length test function
-  function wordLength(str) {
-    for (var i = 0; i < str.length; i++) {
-      str = chosenWord;
-      if (str.length >= 3) {
-        return str;
-      }
+    var selectedWord = '';
+    selectedWord += commonWords[Math.floor(Math.random() * commonWords.length)];
+    if (selectedWord.length < 3) {
+      return wordSelector();
+    }else {
+      return selectedWord;
     }
+  }
+
+  //word hiding function
+  function wordMask() {
+
   }
 
 
@@ -30,4 +28,4 @@ console.log(typeof chosenWord);
 console.log(typeof wordContainer);
 
 //Output the randomly selected word here
-wordContainer.innerText += wordLength(chosenWord);
+wordContainer.innerText += chosenWord;
