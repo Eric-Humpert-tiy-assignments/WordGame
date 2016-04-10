@@ -47,14 +47,17 @@ table {
 	border-spacing: 0;
 }
 
-.body {
+body {
+	background-color: #444;
 	margin: 2%;
 	font-family: sans-serif;
 }
 
 .wordBox {
-  border: solid 2px #000;
+	background-color: #444;
+  border: solid 2px #FFF;
 	border-radius: 5px;
+	color: #FFF;
   margin: 2%;
 }
 
@@ -72,10 +75,20 @@ table {
 }
 
 .inputBox .guessEntry {
+	border-radius: 5px;
+	border-style: none;
+	font-size: 16px;
+	padding: 2%;
 	width: 60%;
 }
 
 .inputBox .submitButton {
+	background-color: #777;
+	border-radius: 5px;
+	border-style: none;
+	color: #FFF;
+	font-size: 16px;
+	font-weight: bold;
 	width: 28%;
-	
+	padding: 2%;
 }
