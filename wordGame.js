@@ -35,7 +35,7 @@ console.log(chosenWord);
 console.log(typeof chosenWord);
 console.log(typeof wordContainer);
 console.log(typeof wordMask);
-console.log(wordMask(chosenWord));
 //Output the randomly selected word here
 var pickedWord = wordMask(chosenWord);
+                          //display the words as underscores for each letter  
 wordContainer.innerText += pickedWord.split('').join(' ');
