@@ -17,15 +17,18 @@ var chosenWord = wordSelector();
 
   //word hiding function
   function wordMask(str) {
-    var placeholder = '';
+    var maskedWord = str;
     for (var i = 0; i < str.length; i++) {
-      placeholder += str.replace('_');
+      maskedWord = maskedWord.replaceAt(i, '_');
 
     }
-    return placeholder;
+    return maskedWord;
   }
 
-
+  //String letter replacement function
+  String.prototype.replaceAt=function(index, character) {
+      return this.substr(0, index) + character + this.substr(index+character.length);
+  }
 
 //Typechecking console logs
 console.log(chosenWord);
@@ -34,4 +37,5 @@ console.log(typeof wordContainer);
 console.log(typeof wordMask);
 console.log(wordMask(chosenWord));
 //Output the randomly selected word here
-wordContainer.innerText += wordMask(chosenWord);
+var pickedWord = wordMask(chosenWord);
+wordContainer.innerText += pickedWord.split('').join(' ');
