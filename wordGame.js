@@ -16,8 +16,13 @@ var chosenWord = wordSelector();
   }
 
   //word hiding function
-  function wordMask() {
+  function wordMask(str) {
+    var placeholder = '';
+    for (var i = 0; i < str.length; i++) {
+      placeholder += str.replace('_');
 
+    }
+    return placeholder;
   }
 
 
@@ -26,6 +31,7 @@ var chosenWord = wordSelector();
 console.log(chosenWord);
 console.log(typeof chosenWord);
 console.log(typeof wordContainer);
-
+console.log(typeof wordMask);
+console.log(wordMask(chosenWord));
 //Output the randomly selected word here
-wordContainer.innerText += chosenWord;
+wordContainer.innerText += wordMask(chosenWord);
