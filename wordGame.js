@@ -2,7 +2,11 @@
 var wordContainer = document.querySelector('.hiddenWord');
 var userGuess = document.querySelector('.guessEntry').value;
 var chosenWord = wordSelector();
+var guessCounter = document.querySelector('#guess-counter');
 
+/************************************************************
+Random word generation logic
+************************************************************/
 
   //word selection function
   function wordSelector() {
@@ -30,12 +34,23 @@ var chosenWord = wordSelector();
       return this.substr(0, index) + character + this.substr(index+character.length);
   }
 
+/*******************************************************************************
+Guess counter logic
+*******************************************************************************/
+
+
+/*******************************************************************************
+Guess validation logic
+*******************************************************************************/
+
 //Typechecking console logs
 console.log(chosenWord);
 console.log(typeof chosenWord);
 console.log(typeof wordContainer);
 console.log(typeof wordMask);
+
 //Output the randomly selected word here
 var pickedWord = wordMask(chosenWord);
-                          //display the words as underscores for each letter  
+
+//display the words as underscores for each letter
 wordContainer.innerText += pickedWord.split('').join(' ');
