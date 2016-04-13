@@ -46,6 +46,10 @@ guessCounter.appendChild(guessTotal);
 Guess validation logic
 *******************************************************************************/
 
+
+/*******************************************************************************
+Output and console testing work
+*******************************************************************************/
 //Typechecking console logs
 console.log(chosenWord);
 console.log(typeof chosenWord);
