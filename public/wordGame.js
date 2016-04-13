@@ -29,7 +29,7 @@ Random word generation logic
     return maskedWord;
   }
 
-  //String letter replacement function
+  //I don't know what this does but will need to read up on it fyi DO IT!!!
   String.prototype.replaceAt=function(index, character) {
       return this.substr(0, index) + character + this.substr(index+character.length);
   }
@@ -38,6 +38,9 @@ Random word generation logic
 Guess counter logic
 *******************************************************************************/
 
+var guessTotal = document.createElement('span');
+guessTotal.textContent = 8;
+guessCounter.appendChild(guessTotal);
 
 /*******************************************************************************
 Guess validation logic
