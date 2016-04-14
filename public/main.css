@@ -89,7 +89,7 @@ UI styling
 	width: 60%;
 }
 
-.inputBox .submitButton {
+.inputBox #guess-button {
 	background-color: #777;
 	border-radius: 5px;
 	border-style: none;
