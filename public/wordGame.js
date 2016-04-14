@@ -2,7 +2,8 @@
 var wordContainer = document.querySelector('.hiddenWord');
 var userGuess = document.querySelector('.guessEntry').value;
 var chosenWord = wordSelector();
-var guessCounter = document.querySelector('#guess-counter');
+var guessCounter = document.getElementById('#guess-counter');
+var guessButton = document.getElementById('#guess-button');
 
 /************************************************************
 Random word generation logic
@@ -38,23 +39,35 @@ Random word generation logic
 Guess counter logic
 *******************************************************************************/
 
-var guessTotal = document.createElement('span');
-guessTotal.textContent = 8;
-guessCounter.appendChild(guessTotal);
+/*
+  var guessTotal = document.createElement('span');
+  guessTotal.textContent = 8;
+  guessCounter.appendChild(guessTotal);
+*/
 
 /*******************************************************************************
 Guess validation logic
 *******************************************************************************/
 
 
+
+  function validateGuess(chosenWord, userGuess) {
+
+  }
+
 /*******************************************************************************
 Output and console testing work
 *******************************************************************************/
+
 //Typechecking console logs
 console.log(chosenWord);
 console.log(typeof chosenWord);
 console.log(typeof wordContainer);
 console.log(typeof wordMask);
+
+/*******************************************************************************
+Page display functionality
+*******************************************************************************/
 
 //Output the randomly selected word here
 var pickedWord = wordMask(chosenWord);
