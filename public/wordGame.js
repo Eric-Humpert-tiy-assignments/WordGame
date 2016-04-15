@@ -1,9 +1,10 @@
 //global variables
 var wordContainer = document.querySelector('.hiddenWord');
-var userGuess = document.querySelector('.guessEntry').value;
+var userInput = document.querySelector('.guessEntry');
 var chosenWord = wordSelector();
 var guessCounter = document.querySelector('#guess-counter');
 var guessButton = document.querySelector('#guess-button');
+var correctLetters = [];
 
 /************************************************************
 Random word generation logic
@@ -21,11 +22,13 @@ Random word generation logic
   }
 
   //word hiding function
-  function wordMask(str) {
+  function wordMask(str, letter) {
     var maskedWord = str;
     for (var i = 0; i < str.length; i++) {
       maskedWord = maskedWord.replaceAt(i, '_');
-
+      if (str[i] === letter) {
+        maskedWord = maskedWord.replaceAt('_', i);
+      }
     }
     return maskedWord;
   }
@@ -39,42 +42,51 @@ Random word generation logic
 Guess counter logic
 *******************************************************************************/
 
-/*
+
   var guessTotal = document.createElement('span');
   guessTotal.textContent = 8;
   guessCounter.appendChild(guessTotal);
-*/
+
 
 /*******************************************************************************
 Guess validation logic
 *******************************************************************************/
-  guessButton.addEventListener('submit', _collectUserGuess(userGuess));
+  guessButton.addEventListener('click', _collectInput);
 
-  function _collectUserGuess(input) {
-    console.log(input);
-    userGuess = '';
-  }
+  function _collectInput() {
+    var guess = userInput.value;
+    console.log(guess);
+    userInput.value = '';
 
-  function validateGuess(chosenWord, userGuess) {
+    validateGuess(guess, chosenWord);
+  };
 
-  }
+  function validateGuess(letter, str) {
+    console.log(letter, str);
+    for (var i = 0; i < str.length; i++) {
+      console.log(str[i]);
+      if (str[i] === letter) {
+        console.log('you guessed a letter');
+        correctLetters.push(letter);
+        break;
+      }else {
+        console.log('sorry that is a wrong letter');
+      }
+    }
 
-/*******************************************************************************
-Output and console testing work
-*******************************************************************************/
+    console.log(correctLetters);
+  };
+
 
 //Typechecking console logs
 console.log(chosenWord);
-console.log(typeof chosenWord);
-console.log(typeof wordContainer);
-console.log(typeof wordMask);
 
 /*******************************************************************************
 Page display functionality
 *******************************************************************************/
 
 //Output the randomly selected word here
-var pickedWord = wordMask(chosenWord);
+var pickedWord = wordMask(chosenWord, correctLetters);
 
 //display the words as underscores for each letter
 wordContainer.innerText += pickedWord.split('').join(' ');
