@@ -2,8 +2,8 @@
 var wordContainer = document.querySelector('.hiddenWord');
 var userGuess = document.querySelector('.guessEntry').value;
 var chosenWord = wordSelector();
-var guessCounter = document.getElementById('#guess-counter');
-var guessButton = document.getElementById('#guess-button');
+var guessCounter = document.querySelector('#guess-counter');
+var guessButton = document.querySelector('#guess-button');
 
 /************************************************************
 Random word generation logic
@@ -48,8 +48,12 @@ Guess counter logic
 /*******************************************************************************
 Guess validation logic
 *******************************************************************************/
+  guessButton.addEventListener('submit', _collectUserGuess(userGuess));
 
-
+  function _collectUserGuess(input) {
+    console.log(input);
+    userGuess = '';
+  }
 
   function validateGuess(chosenWord, userGuess) {
 
