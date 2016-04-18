@@ -22,20 +22,19 @@ Random word generation logic
   }
 
   //word hiding function
-  function wordMask(str, letter) {
-    var maskedWord = str;
+  function wordMask(str, arr) {
+    console.log("Word Mask", str, arr);
+    var maskedWord = '';
     for (var i = 0; i < str.length; i++) {
-      maskedWord = maskedWord.replaceAt(i, '_');
-      if (str[i] === letter) {
-        maskedWord = maskedWord.replaceAt('_', i);
+      var char = str[i];
+      if (arr.indexOf(char) > -1) {
+        maskedWord += char + " ";
+      }else {
+        maskedWord += "_ "
       }
     }
+//    console.log(arr.char);
     return maskedWord;
-  }
-
-  //I don't know what this does but will need to read up on it fyi DO IT!!!
-  String.prototype.replaceAt=function(index, character) {
-      return this.substr(0, index) + character + this.substr(index+character.length);
   }
 
 /*******************************************************************************
@@ -54,27 +53,30 @@ Guess validation logic
   guessButton.addEventListener('click', _collectInput);
 
   function _collectInput() {
+    console.log("Collect Input");
     var guess = userInput.value;
-    console.log(guess);
+    //console.log(guess);
     userInput.value = '';
 
     validateGuess(guess, chosenWord);
   };
 
   function validateGuess(letter, str) {
-    console.log(letter, str);
+    console.log("Validate Guess", letter, str);
     for (var i = 0; i < str.length; i++) {
-      console.log(str[i]);
+      //console.log(str[i]);
       if (str[i] === letter) {
-        console.log('you guessed a letter');
+        //console.log('you guessed a letter');
         correctLetters.push(letter);
+        var newValue = wordMask(str, correctLetters);
+        wordContainer.innerText = newValue;
         break;
       }else {
-        console.log('sorry that is a wrong letter');
+        //console.log('sorry that is a wrong letter');
       }
     }
 
-    console.log(correctLetters);
+    //console.log(correctLetters);
   };
 
 
