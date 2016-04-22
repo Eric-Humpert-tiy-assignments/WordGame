@@ -20,7 +20,7 @@ Random word generation logic
     }else {
       return selectedWord;
     }
-  }
+  };
 
   //word hiding function
   function wordMask(str, arr) {
@@ -36,50 +36,48 @@ Random word generation logic
     }
 //    console.log(arr.char);
     return maskedWord;
-  }
+  };
 
 /*******************************************************************************
 Guess counter logic
 *******************************************************************************/
 
-
-  var guessTotal = document.createElement('span');
-  guessTotal.textContent = 8;
-  guessCounter.appendChild(guessTotal);
+var numGuesses = 8;
+var guessTotal = numGuesses;
+guessCounter.textContent = numGuesses;
 
 
 /*******************************************************************************
 Guess validation logic
 *******************************************************************************/
-  guessButton.addEventListener('click', _collectInput);
+guessButton.addEventListener('click', _collectInput);
 
-  function _collectInput() {
-    console.log("Collect Input");
-    var guess = userInput.value;
-    //console.log(guess);
-    userInput.value = '';
+function _collectInput() {
+  console.log("Collect Input");
+  var guess = userInput.value;
+  console.log(guess);
+  userInput.value = '';
 
-    validateGuess(guess, chosenWord);
-  };
+  validateGuess(guess, chosenWord);
+};
 
-  function validateGuess(letter, str) {
-    console.log("Validate Guess", letter, str);
-    for (var i = 0; i < str.length; i++) {
-      //console.log(str[i]);
-      if (str[i] === letter) {
-        //console.log('you guessed a letter');
-        correctLetters.push(letter);
-        var newValue = wordMask(str, correctLetters);
-        wordContainer.innerText = newValue;
-      }else {
-        //console.log('sorry that is a wrong letter');
-        messaging.textContent = "Sorry that is a wrong letter.  Try again!";
-        guessTotal--;
-      }
-    }
+function validateGuess(letter, str) {
+  var hasLetter = str.includes(letter);
+  if (hasLetter) {
+    correctLetters.push(letter);
+    var newValue = wordMask(str, correctLetters);
+    wordContainer.innerText = newValue;
+    messaging.innerText = "You guessed the right letter!";
+  } else {
+    guessTotal -= 1;
+    guessCounter.textContent = guessTotal;
+    messaging.textContent = "Sorry that is a wrong letter.  Try again!";
+  }
 
-    //console.log(correctLetters);
-  };
+  if (guessTotal === 0) {
+    messaging.textContent = "You lost!  Better luck next time."
+  }
+};
 
 
 //Typechecking console logs
