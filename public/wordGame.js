@@ -4,6 +4,7 @@ var userInput = document.querySelector('.guessEntry');
 var chosenWord = wordSelector();
 var guessCounter = document.querySelector('#guess-counter');
 var guessButton = document.querySelector('#guess-button');
+var messaging = document.querySelector('#messaging');
 var correctLetters = [];
 
 /************************************************************
@@ -27,7 +28,7 @@ Random word generation logic
     var maskedWord = '';
     for (var i = 0; i < str.length; i++) {
       var char = str[i];
-      if (arr.indexOf(char) > -1) {
+      if (arr.indexOf(char) !== -1) {
         maskedWord += char + " ";
       }else {
         maskedWord += "_ "
@@ -70,9 +71,10 @@ Guess validation logic
         correctLetters.push(letter);
         var newValue = wordMask(str, correctLetters);
         wordContainer.innerText = newValue;
-        break;
       }else {
         //console.log('sorry that is a wrong letter');
+        messaging.textContent = "Sorry that is a wrong letter.  Try again!";
+        guessTotal--;
       }
     }
 
