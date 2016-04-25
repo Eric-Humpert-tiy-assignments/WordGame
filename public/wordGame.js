@@ -62,23 +62,29 @@ function _collectInput() {
 };
 
 function validateGuess(letter, str) {
-  var hasLetter = str.includes(letter);
-  if (hasLetter) {
+  var letterIndex = str.indexOf(letter);
+  console.log(letterIndex, letter, str);
+  if (letterIndex > -1) {
     correctLetters.push(letter);
     var newValue = wordMask(str, correctLetters);
     wordContainer.innerText = newValue;
-    messaging.innerText = "You guessed the right letter!";
-  } else {
+    console.log(letter, str, newValue);
+    if (newValue.indexOf('_') > -1) {
+      messaging.innerText = "You guessed the right letter";
+    } else {
+      messaging.innerText = "Congratulations you won!";
+    }
+  }  else {
     guessTotal -= 1;
     guessCounter.textContent = guessTotal;
     messaging.textContent = "Sorry that is a wrong letter.  Try again!";
   }
 
   if (guessTotal === 0) {
-    messaging.textContent = "You lost!  Better luck next time."
+    messaging.textContent = "You lost!  Better luck next time.";
   }
-};
 
+};
 
 //Typechecking console logs
 console.log(chosenWord);
